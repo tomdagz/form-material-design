@@ -33,7 +33,7 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('styles', function(){
-	gulp.src('src/scss/**/*.scss')
+	gulp.src('src/scss/**/*.{scss,sass}')
 		//.pipe(plumber())
 		.pipe(sass({
 			sytle: 'compressed'}
@@ -75,7 +75,7 @@ gulp.task('connect', function(){
 gulp.task('watch', function(){
 	//var server =livereolad();
 	gulp.watch('src/js/*.js', ['scripts'])
-	gulp.watch('src/scss/**/*.scss', ['styles'])
+	gulp.watch('src/scss/**/*.{scss,sass}', ['styles'])
 	gulp.watch('src/templates/**/*.jade',['jade-watch'])
 });
 
