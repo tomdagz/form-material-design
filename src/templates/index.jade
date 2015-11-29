@@ -2,27 +2,28 @@ extends ./base.jade
 
 block content
 	div.contenedor-formulario
-		form.formulario(action="", name="formulario_registro", method="")
-			div
-				div.input-group
-					input#nombre(type="text", nombre="nombre")
-					label(for="nombre") Nombre:
-				div.input-group
-					input#email(type="email", nombre="email")
-					label(for="email") Correo:
-				div.input-group
-					input#pass(type="password", nombre="pass")
-					label(for="pass") Contraseña:
-				div.input-group
-					input#pass2(type="password", nombre="pass2")
-					label(for="pass2") Repetir contraseña:
-				div.input-group.radio
-					input#hombre(type="radio", name="sexo", value="Hombre")
-					label(for="hombre")	Hombre
-				div.input-group.radio
-					input#mujer(type="radio", name="sexo", value="Mujer")
-					label(for="mujer") Mujer
-				div.input-group.checkbox
-					input#terminos(type="checkbox", name="terminos", value="true")
-					label(for="terminos") Acepto los términos y condiciones
-				input#btn-submit(type="submit", value="Enviar")
+		div.wrap
+			form.formulario(action="", name="formulario_registro", method="")
+				div
+					div.input-group
+						input#nombre(type="text", nombre="nombre")
+						label.label(for="nombre") Nombre:
+					div.input-group
+						input#email(type="email", nombre="email")
+						label.label(for="email") Correo:
+					div.input-group
+						input#pass(type="password", nombre="pass")
+						label.label(for="pass") Contraseña:
+					div.input-group
+						input#pass2(type="password", nombre="pass2")
+						label.label(for="pass2") Repetir contraseña:
+					div.input-group.radio
+						input#hombre(type="radio", name="sexo", value="Hombre")
+						label(for="hombre")	Hombre
+					div.input-group.radio
+						input#mujer(type="radio", name="sexo", value="Mujer")
+						label(for="mujer") Mujer
+					div.input-group.checkbox
+						input#terminos(type="checkbox", name="terminos", value="true")
+						label(for="terminos") Acepto los términos y condiciones
+					input#btn-submit(type="submit", value="Enviar")
