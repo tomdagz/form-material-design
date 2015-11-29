@@ -105,3 +105,17 @@ body {
           padding: 5px 15px;
           background: #f2f2f2;
           color: #f2f2f2; }
+    .contenedor-formulario .formulario input[type="submit"] {
+      background: #303f9f;
+      border-radius: 1px;
+      border: 2px solid #f2f2f2;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      padding: 15 px;
+      width: 100%;
+      font-family: "Roboto", Arial;
+      font-size: 16px;
+      transition: all .3s ease; }
+      .contenedor-formulario .formulario input[type="submit"]:hover {
+        background: #1976d2; }

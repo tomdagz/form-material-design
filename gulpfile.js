@@ -37,8 +37,8 @@ gulp.task('styles', function(){
 		//.pipe(plumber())
 		.pipe(sass({
 			sytle: 'compressed'}
-		))
-		.on('error', errorlog)
+		).on('error', sass.logError))
+		//.on('error', errorlog)
 		.pipe(prefix('last 2 versions'))
 		.pipe(gulp.dest(outputDir+'/css'))
 		//.pipe(livereolad());

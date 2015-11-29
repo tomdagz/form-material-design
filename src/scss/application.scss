@@ -161,5 +161,24 @@ body {
 
 			}
 		}
+
+		input[type="submit"] {
+			background: $primary;
+			border-radius: 1px;
+			border: $border solid $white;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			padding: 15 px;
+			width: 100%;
+			font-family: $font-family;
+			font-size: 16px;
+			transition: all .3s ease;
+
+			&:hover {
+				background: #1976d2;
+			}
+
+		}
 	}
 }
