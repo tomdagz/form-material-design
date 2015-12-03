@@ -14,7 +14,9 @@ var connect = require('gulp-connect');
 
 var outputDir = 'build/development';
 
-//var plumber = require('gulp-plumber');
+var browserSync = require('browser-sync');
+
+var plumber = require('gulp-plumber');
 
 function errorlog(error){
 	console.error.bind(error);
@@ -25,24 +27,26 @@ function errorlog(error){
 
 gulp.task('scripts', function(){
 	gulp.src('src/js/*.js')
-		//.pipe(plumber())
+		.pipe(plumber({errorHandler:errorlog}))
 		.pipe(uglify())
-		.on('error', errorlog)
+		//.on('error', errorlog)
 		.pipe(gulp.dest(outputDir+'/js'))
-		.pipe(connect.reload());	
+		.pipe(browserSync.reload({stream:true}));
+		//.pipe(connect.reload());	
 });
 
 gulp.task('styles', function(){
 	gulp.src('src/scss/**/*.{scss,sass}')
-		//.pipe(plumber())
+		.pipe(plumber({errorHandler:errorlog}))
 		.pipe(sass({
 			sytle: 'compressed'}
-		).on('error', sass.logError))
+		))//.on('error', sass.logError))
 		//.on('error', errorlog)
 		.pipe(prefix('last 2 versions'))
 		.pipe(gulp.dest(outputDir+'/css'))
+		.pipe(browserSync.reload({stream:true}));
 		//.pipe(livereolad());
-		.pipe(connect.reload());	
+		//.pipe(connect.reload());	
 });
 
 gulp.task('image', function(){
@@ -60,7 +64,7 @@ gulp.task('jade-compile', function(){
 			}
 		))
 		.pipe(gulp.dest(outputDir))
-		.pipe(connect.reload());
+		//.pipe(connect.reload());
 });
 
 gulp.task('jade-watch', ['jade-compile'])
@@ -74,9 +78,13 @@ gulp.task('connect', function(){
 
 gulp.task('watch', function(){
 	//var server =livereolad();
-	gulp.watch('src/js/*.js', ['scripts'])
-	gulp.watch('src/scss/**/*.{scss,sass}', ['styles'])
-	gulp.watch('src/templates/**/*.jade',['jade-watch'])
+	browserSync.init({
+		server: './build'
+	});
+	gulp.watch('src/js/*.js', ['scripts']);
+	gulp.watch('src/scss/**/*.{scss,sass}', ['styles']);
+	gulp.watch('src/templates/**/*.jade',['jade-watch']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['scripts', 'styles', 'jade-compile' ,'watch', 'connect']);
+gulp.task('default', ['scripts', 'styles', 'jade-compile' ,'watch']);
+//gulp.task('default', ['scripts', 'styles', 'jade-compile' ,'watch', 'connect']);
