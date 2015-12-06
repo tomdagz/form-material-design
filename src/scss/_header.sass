@@ -1,0 +1,114 @@
+header
+	width: 100%
+
+	nav
+		background: #023859
+		z-index: 100
+		max-width: 1000px
+		width: 100%
+		margin: 20px auto
+
+		ul
+			list-style: none
+
+			li
+				display: inline-block
+				position: relative
+
+				a
+					color: #fff
+					display: block
+					text-decoration: none
+					padding: 20px
+
+					span
+						margin-right: 10px
+
+				.children
+					display: none
+					background: #011826
+					position: absolute
+					widows: 150%
+					z-index: 100
+
+					li
+						display: block
+						overflow: hidden
+						border-bottom: 	1px solid rgba(white, .5)
+
+						a
+							display: block
+
+							span
+								float: right
+								position: relative
+								top: 3px
+								margin-right: 0
+								margin-left: 10px
+				.caret
+					position:relative
+					top: 3px
+					margin-left: 10px
+					margin-right: 0px				
+
+				&:hover
+					background: #e6344a
+
+					.children
+						display: block
+
+		+bp(small)
+			width: 80%
+			position: fixed
+			right: 100%
+			margin: 0
+			overflow: scroll
+			height: calc(100% - 80px)
+
+			& ul li
+				display: block
+				border-bottom: 1px solid rgba(white, .5)
+
+				a
+					display: block
+
+				.children
+					width: 100%
+					position: relative
+
+					li a
+						margin-left: 20px
+
+				.caret
+					float: right
+
+				&:hover .children
+					display: none				
+
+body
+	+bp(small)
+		padding-top: 80px
+
+.menu_bar
+	display: none
+
+	+bp(small)
+		display: block
+		width: 100%
+		position: fixed
+		top: 0
+		background: #36344a
+
+		& .bt-menu
+			display: block
+			padding: 20px
+			color: white
+			overflow: hidden
+			font-size: 25px
+			font-weight: bold
+			text-decoration: none
+
+		& span
+			float: right
+			font-size: 40px
+

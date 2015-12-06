@@ -1,6 +1,46 @@
 extends ./layout.jade
 
 block content
+	section
+		header
+			.menu_bar
+				a.bt-menu(href="#")
+					span.icon-list2 
+					|Menu
+			nav
+				ul
+					li
+						a(href="#")
+							span.icon-house
+							| Inicio
+					li
+						a(href="#")
+							span.con-suitcase
+							| Trabajos
+					li.submenu
+						a(href="#")
+							span.icon-rocket
+							| Proyectos
+							span.caret.icon-arrow-down6
+						ul.children
+							li
+								a(href="#") Submenu 1
+									span.icon-dot
+							li
+								a(href="#") Submenu 2
+									span.icon-dot
+							li
+								a(href="#") Submenu 3
+									span.icon-dot					
+					li
+						a(href="#")
+							span.icon-earth
+							| Servicios
+					li
+						a(href="#")
+							span.icon-mail
+							| Contactos
+
 	div.contenedor-formulario
 		div.wrap
 			form.formulario(action="", name="formulario_registro", method="")

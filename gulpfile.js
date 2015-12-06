@@ -79,7 +79,7 @@ gulp.task('connect', function(){
 gulp.task('watch', function(){
 	//var server =livereolad();
 	browserSync.init({
-		server: './build'
+		server: outputDir
 	});
 	gulp.watch('src/js/*.js', ['scripts']);
 	gulp.watch('src/scss/**/*.{scss,sass}', ['styles']);
